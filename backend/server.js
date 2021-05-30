@@ -17,6 +17,11 @@ mongoose.connect(DB, {
 
 //middlewares
 app.use(express.json());
+app.us((req, res, next) => {
+  res.setHeaders("Access-Control-Allow-Origin", "*"),
+    res.setHeaders("Access-Control-Allow-Headers", "*"),
+    next();
+});
 
 //api endpoints
 app.get("/", (req, res) => {
